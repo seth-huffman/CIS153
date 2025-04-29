@@ -16,6 +16,7 @@ public class Sort {
         return merge(mergeSort(left), mergeSort(right));
     }
 
+    // Sorting is recursive, then it merges together in sorted order
     private static LinkedList<Task> merge(LinkedList<Task> left, LinkedList<Task> right) {
         LinkedList<Task> sorted = new LinkedList<>();
         while (!left.isEmpty() && !right.isEmpty()) {
@@ -32,6 +33,10 @@ public class Sort {
         return sorted;
     }
 
+    /*
+     * Compares the tasks based upon how important they are
+     * If both are importnt then compare date
+     */ 
     private static int compareTasks(Task a, Task b) {
         if (a.importnat() && !b.importnat()) return -1;
         if (!a.importnat() && b.importnat()) return 1;
